@@ -1,0 +1,22 @@
+.container-prod{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//tablets
+
+@media screen and (min-width:40em) and (max-width:63em){
+  .container-prod{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media screen and (min-width:64em){
+  .container-prod{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+  }
+}

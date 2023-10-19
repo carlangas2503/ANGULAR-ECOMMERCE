@@ -1,0 +1,45 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="changeShowMenu()">
+      ⚙️
+    </button>
+    <a href="#">
+      🏠
+    </a>
+    <a href="#">
+      🛒
+    </a>
+  </div>
+</div>
+
+<div class='side-menu' [class.active]="showMenu" >
+  <button (click)="changeShowMenu()">Close</button>
+  <ul>
+    <li><a href="#">All</a></li>
+    <li><a href="#">Clothes</a></li>
+    <li><a href="#">Electronics</a></li>
+  </ul>
+</div>
+
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a href="#" class="logo">
+        🏠
+      </a>
+      <ul>
+        <li><a href="#">All</a></li>
+        <li><a href="#">Clothes</a></li>
+        <li><a href="#">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="acount">
+        carlos.valencias2503@gmail.com
+      </div>
+      <div>
+        <a href="#">🛒</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<p>
+  cantidad de productos: {{myShoppingCard.length}}
+</p>
+<p>
+  Precio total a pagar: ${{total}}
+</p>
+
+<div class="container-prod">
+  <app-product
+  (addProd)="onAdd($event)"
+  *ngFor="let prod of products"
+  [product]="prod"/>
+</div>

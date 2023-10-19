@@ -1,0 +1,7 @@
+
+<img width="200" [src]="image" alt="imagen" (error)="eventError()" *ngIf="image; else elseImage">
+<ng-template #elseImage>
+  <img [src]="imageDefault" alt="alguna imagen más">
+</ng-template>
+<br>
+<!-- <p>{{counter}}</p> -->

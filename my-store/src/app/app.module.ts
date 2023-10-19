@@ -4,10 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { HomeComponent } from './components/home/home.component';
+import { ImgComponent } from './components/img/img.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProductsComponent } from './components/products/products.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailComponent,
+    HomeComponent,
+    ImgComponent,
+    ProductComponent,
+    ProductsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
