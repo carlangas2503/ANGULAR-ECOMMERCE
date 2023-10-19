@@ -9,9 +9,12 @@ import { Product } from 'src/app/models/products.model';
 export class ProductComponent {
   @Input()product: Product = {
     id:0,
-    name:'',
+    title:'',
     price:0,
-    image:''
+    image:'',
+    description:'',
+    category:'',
+    rating:{}
   }
   @Output() addProd = new EventEmitter<Product>()
   addCar(){
