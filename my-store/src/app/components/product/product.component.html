@@ -1,5 +1,5 @@
 
 <app-img [image]="product.image"></app-img>
-<h2>${{product.price}}</h2>
-<p>{{product.title}}</p>
+<h2>{{product.price | currency:'USD'}}</h2>  <!-- Pipe, es la forma de transformar algo sin cambiarlo por completo en si -->
+<p>{{product.title | uppercase}}</p>
 <button (click)="addCar()" >Agregar</button>
