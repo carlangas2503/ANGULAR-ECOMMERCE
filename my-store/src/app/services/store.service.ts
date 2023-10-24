@@ -11,7 +11,6 @@ export class StoreService {
   private myCart = new BehaviorSubject<Product[]>([]) //se crea la instancia de un estado global
 
   myCart$ = this.myCart.asObservable() //luego se crea el observador o lo que va a hacer uso de este estado
-  constructor() { }
 
   onAdd(prod:Product){
     this.myShoppingCard.push(prod)

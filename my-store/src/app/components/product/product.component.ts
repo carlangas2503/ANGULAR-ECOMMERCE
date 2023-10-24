@@ -1,4 +1,4 @@
-import { Component,Input,Output,EventEmitter,OnChanges, SimpleChanges } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/products.model';
 
 @Component({
@@ -11,13 +11,21 @@ export class ProductComponent {
     id:0,
     title:'',
     price:0,
-    image:'',
+    images:[],
     description:'',
-    category:'',
-    rating:{}
+    category:{
+      id:0,
+      name:'',
+      typeImg:''
+    },
+    categoryId:0
   }
   @Output() addProd = new EventEmitter<Product>()
+  @Output() showProd = new EventEmitter<number>()
   addCar(){
     this.addProd.emit(this.product)
+  }
+  activeDetail(){
+    this.showProd.emit(this.product.id)
   }
 }
