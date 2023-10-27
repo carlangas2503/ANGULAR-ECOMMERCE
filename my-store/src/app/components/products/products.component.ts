@@ -26,6 +26,8 @@ export class ProductsComponent implements OnInit{
   myShoppingCard: Product[]=[]
   total = 0
   products: Product[] = []
+  limit = 10
+  offset = 0
 
   constructor(
     private storeService: StoreService,
@@ -34,12 +36,8 @@ export class ProductsComponent implements OnInit{
     this.myShoppingCard = this.storeService.getMyCart()
   }
   ngOnInit(): void {
-    this.reqService.getAllProd()
-    .subscribe(data=>{
-      this.products = data
-    })
+    this.showMore()
   }
-
   onAdd(prod:Product){
     this.storeService.onAdd(prod)
     this.total = this.storeService.getTotal()
@@ -69,6 +67,28 @@ export class ProductsComponent implements OnInit{
     this.reqService.create(prod)
     .subscribe(data=>{
       console.log(data);
+    })
+  }
+  updtaeProd(){
+    this.reqService.update(this.detail.id,{title:'Prueba'})
+    .subscribe(data=>{
+      const prodIndex = this.products.findIndex(ele => ele.id === this.detail.id)
+      this.products[prodIndex] = data
+      this.detail = data
+    })
+  }
+  deleteProd(){
+    this.reqService.delete(this.detail.id)
+    .subscribe(data=>console.log(data))
+    this.products = this.products.filter(ele => ele.id !== this.detail.id)
+    this.clickShowDetai()
+    window.alert(`Producto ${this.detail.title} eliminado con exito`)
+  }
+  showMore(){
+    this.reqService.getByPage(this.limit,this.offset)
+    .subscribe(data=>{
+      this.products = data
+      this.offset += this.limit
     })
   }
 }

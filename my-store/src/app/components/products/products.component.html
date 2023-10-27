@@ -4,6 +4,7 @@
 <p>
   Precio total a pagar: ${{total}}
 </p> -->
+<button (click)="createProd()" >create</button>
 <div class="container-prod">
   <app-product
   (addProd)="onAdd($event)"
@@ -16,17 +17,16 @@
     <button (click)="clickShowDetai()" >Close</button>
     <h1>{{detail.title | uppercase}}</h1>
     <h2>{{detail.price | currency:'USD'}}</h2>  <!-- Pipe, es la forma de transformar algo sin cambiarlo por completo en si -->
-    <!-- <swiper
-    [slidesPerView]="1"
-    >
-    <ng-template *ngFor="let ele of detail.images">
-      <img [src]="ele" alt="">
-    </ng-template>
-    </swiper> -->
     <section>
       <img *ngFor="let ele of detail.images" [src]="ele" alt="imagen"/>
     </section>
     <p>{{detail.description}}</p>
+    <button (click)="updtaeProd()" >Edit</button>
+    <button (click)="deleteProd()" >Delete</button>
 </div>
+<div>
+  <button (click)="showMore()" >Show more</button>
+</div>
+
 
 
