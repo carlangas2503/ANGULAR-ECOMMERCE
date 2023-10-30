@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service'
+import { UsersService } from './services/users.service'
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,30 @@ export class AppComponent {
   image = ''
   showCount = true
   alt=''
+  token = ''
   toggleCount(){
     this.showCount = !this.showCount
+  }
+  constructor(
+    private auth:AuthService,
+    private users:UsersService
+  ){}
+
+  createUser(){
+    this.users.create({
+      name:'carlos',
+      email:'carlos@gmail.com',
+      password:'carlos123'
+    })
+    .subscribe(rta=>
+      console.log(rta)
+      )
+  }
+  login(){
+    this.auth.login('carlos@gmail.com','carlos123')
+    .subscribe(rta=>{
+      this.token = rta.access_token
+    })
   }
   // imagen = 'https://source.unsplash.com/random'
   // btDes = true
