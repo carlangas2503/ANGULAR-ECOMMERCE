@@ -41,7 +41,8 @@
     </nav>
     <div class="info">
       <div class="acount">
-        carlos.valencias2503@gmail.com
+        <button *ngIf="!token; else elseBlock" (click)="login()" >Login</button>
+        <ng-template #elseBlock >{{profile?.email}}</ng-template>
       </div>
       <div>
         <a href="#">❤️</a>

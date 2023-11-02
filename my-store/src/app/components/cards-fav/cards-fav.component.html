@@ -1,6 +1,0 @@
-<div (click)="activeDetail()" >
-  <app-img *ngIf="product.images.length > 0" [image]="product.images[0]"></app-img>
-  <app-img *ngIf="product.images.length <= 0" image="https://tse3.mm.bing.net/th?id=OIP.x37qkyUkZ56sRd4DywwyoAHaHh&pid=Api&P=0&h=180"></app-img>
-</div>
-<h2>{{product.price | currency:'USD'}}</h2>  <!-- Pipe, es la forma de transformar algo sin cambiarlo por completo en si -->
-<p>{{product.title | uppercase}}</p>

@@ -26,15 +26,6 @@ export class AppComponent {
       email:'carlos@gmail.com',
       password:'carlos123'
     })
-    .subscribe(rta=>
-      console.log(rta)
-      )
-  }
-  login(){
-    this.auth.login('carlos@gmail.com','carlos123')
-    .subscribe(rta=>{
-      this.token = rta.access_token
-    })
   }
   // imagen = 'https://source.unsplash.com/random'
   // btDes = true
