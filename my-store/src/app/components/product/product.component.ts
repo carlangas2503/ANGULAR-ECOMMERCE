@@ -7,6 +7,7 @@ import { Product } from 'src/app/models/products.model';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
+  showFav = false
   @Input()product: Product = {
     id:0,
     title:'',
@@ -22,10 +23,22 @@ export class ProductComponent {
   }
   @Output() addProd = new EventEmitter<Product>()
   @Output() showProd = new EventEmitter<number>()
+  @Output() addToFav = new EventEmitter<Product>()
+  @Output() deleteToFav = new EventEmitter<Product>()
+  @Output() exist = new EventEmitter<Product>()
+
   addCar(){
     this.addProd.emit(this.product)
   }
   activeDetail(){
     this.showProd.emit(this.product.id)
+  }
+  addFav(){
+    this.addToFav.emit(this.product)
+    this.showFav = !this.showFav
+  }
+  deleteFav(){
+    this.deleteToFav.emit(this.product)
+    this.showFav = !this.showFav
   }
 }

@@ -4,6 +4,3 @@
 </div>
 <h2>{{product.price | currency:'USD'}}</h2>  <!-- Pipe, es la forma de transformar algo sin cambiarlo por completo en si -->
 <p>{{product.title | uppercase}}</p>
-<button (click)="addCar()" >Agregar</button>
-<button *ngIf="!showFav" (click)="addFav()" >🤍</button>
-<button *ngIf="showFav" (click)="deleteFav()" >❤️</button>

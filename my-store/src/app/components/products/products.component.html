@@ -10,7 +10,9 @@
   (addProd)="onAdd($event)"
   *ngFor="let prod of products"
   [product]="prod"
-  (showProd)="onShowDetail($event)" />
+  (showProd)="onShowDetail($event)"
+  (addToFav)="onAddFav($event)"
+  (deleteToFav)="onDeleteFav($event)"/>
 </div>
 
 <div *ngIf="detail" class="product-detail" [class.active]="showDetail">

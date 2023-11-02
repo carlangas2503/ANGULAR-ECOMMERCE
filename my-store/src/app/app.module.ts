@@ -13,6 +13,8 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { FavsComponent } from './components/favs/favs.component';
+import { CardsFavComponent } from './components/cards-fav/cards-fav.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ReversePipe } from './pipes/reverse.pipe';
     ProductsComponent,
     NavbarComponent,
     ReversePipe,
+    FavsComponent,
+    CardsFavComponent,
   ],
   imports: [
     SwiperModule,

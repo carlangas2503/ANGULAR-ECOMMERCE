@@ -2,6 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { Product, ProductDTO } from 'src/app/models/products.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ReqprodService } from 'src/app/services/reqprod.service';
+import { FavService } from 'src/app/services/fav/fav.service';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +32,8 @@ export class ProductsComponent implements OnInit{
 
   constructor(
     private storeService: StoreService,
-    private reqService: ReqprodService
+    private reqService: ReqprodService,
+    private favs: FavService
   ){
     this.myShoppingCard = this.storeService.getMyCart()
   }
@@ -87,8 +89,14 @@ export class ProductsComponent implements OnInit{
   showMore(){
     this.reqService.getByPage(this.limit,this.offset)
     .subscribe(data=>{
-      this.products = data
+      this.products = this.products.concat(data)
       this.offset += this.limit
     })
+  }
+  onAddFav(prod:Product){
+    this.favs.add(prod)
+  }
+  onDeleteFav(prod:Product){
+    this.favs.delete(prod)
   }
 }
