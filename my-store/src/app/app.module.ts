@@ -20,6 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TimeInterceptor } from './interceptor/time.interceptor';
+import { TokenInterceptor } from './interceptor/token/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { TimeInterceptor } from './interceptor/time.interceptor';
     HttpClientModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass: TimeInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass: TimeInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass: TokenInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })

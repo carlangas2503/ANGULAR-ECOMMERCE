@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit {
   counter = 0
   counterFav = 0
   token = ''
+  email = 'carlos@gmail.com'
+  password = 'carlos123'
   profile:User | null = null
   constructor(
     private auth: AuthService,
@@ -34,13 +36,18 @@ export class NavbarComponent implements OnInit {
     this.showMenu = !this.showMenu
   }
   getProfile(){
-    this.auth.profile(this.token)
+    this.auth.profile()
     .subscribe(profile=>this.profile = profile)
   }
   login(){
-    this.auth.login('carlos@gmail.com','carlos123')
-    .subscribe(rta=>{
-      this.token = rta.access_token
+    // this.auth.login('carlos@gmail.com','carlos123')
+    // .subscribe(rta=>{
+    //   this.token = rta.access_token
+    //   this.getProfile()
+    // })
+    this.auth.loginGet(this.email,this.password)
+    .subscribe(user=>{
+      this.profile = user
       this.getProfile()
     })
   }

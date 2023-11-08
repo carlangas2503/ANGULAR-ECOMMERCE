@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product ,ProductDTO,UpdateProductDTO} from '../models/products.model';
+import { checkTime } from '../interceptor/time.interceptor';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ReqprodService {
   ) { }
 
   getAllProd(){
-    return this.http.get<Product[]>(this.url)
+    return this.http.get<Product[]>(this.url,{context:checkTime()})
   }
   getOneProd(id:number){
     return this.http.get<Product>(`${this.url}${id}`)

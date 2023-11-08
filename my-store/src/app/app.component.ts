@@ -25,7 +25,7 @@ export class AppComponent {
       name:'carlos',
       email:'carlos@gmail.com',
       password:'carlos123'
-    })
+    }).subscribe(rta=>console.log(rta))
   }
   // imagen = 'https://source.unsplash.com/random'
   // btDes = true
